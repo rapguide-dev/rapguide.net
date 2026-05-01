@@ -110,5 +110,5 @@ export function ContactSection() {
         </motion.form>
       </div>
     </section>
-    )
+    );
 }
