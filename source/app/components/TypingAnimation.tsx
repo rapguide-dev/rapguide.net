@@ -4,7 +4,6 @@ interface TypingAnimationProps {
   texts: string[];
 }
 
-
 export function TypingAnimation({ texts }: TypingAnimationProps) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -24,7 +23,7 @@ export function TypingAnimation({ texts }: TypingAnimationProps) {
         }
       } else {
         if (currentText !== "") {
-          setCurrentText(fullText.substring(0, currentText.length -1));
+          setCurrentText(fullText.substring(0, currentText.length - 1));
           setTypingSpeed(100);
         } else {
           setIsDeleting(false);
@@ -34,13 +33,13 @@ export function TypingAnimation({ texts }: TypingAnimationProps) {
     };
 
     const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);s
+    return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentTextIndex, texts, typingSpeed]);
 
   return (
     <div className="text-lg md:text-xl text-[var(--color-primary)] h-8 flex items-center">
-      <span>(currentText)</span>
-      <span className="animate-pulse m1-1">|</span>
+      <span>{currentText}</span>
+      <span className="animate-pulse ml-1">|</span>
     </div>
   );
 }
